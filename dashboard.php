@@ -191,7 +191,7 @@ include 'includes/header.php';
     </div>
     
     <!-- Quick Stats Cards - Row 1 -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
         <!-- Today's Sales -->
         <?php if (isset($stats['today_sales'])): ?>
         <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-4 text-white transform hover:scale-105 transition">
@@ -264,22 +264,20 @@ include 'includes/header.php';
     </div>
     
     <!-- Key Metrics Cards - Row 2 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
         <!-- Total Revenue -->
         <?php if (isset($stats['total_revenue'])): ?>
-        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center">
-                    <div class="bg-green-100 p-3 rounded-lg mr-3">
-                        <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-600 text-sm">Total Revenue</p>
-                        <p class="text-2xl font-bold text-gray-800"><?php echo formatMoney($stats['total_revenue']); ?></p>
-                    </div>
+        <div class="bg-white rounded-xl shadow-lg p-4 border-l-4 border-green-500 hover:shadow-xl transition">
+            <div class="flex items-center mb-2">
+                <div class="bg-green-100 p-2 rounded-lg mr-2">
+                    <i class="fas fa-dollar-sign text-green-600 text-lg"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-gray-600 text-xs">Total Revenue</p>
+                    <p class="text-lg font-bold text-gray-800 truncate"><?php echo formatMoney($stats['total_revenue']); ?></p>
                 </div>
             </div>
-            <div class="flex items-center text-sm">
+            <div class="text-xs">
                 <span class="text-green-600 font-semibold"><?php echo $stats['total_sales']; ?> sales</span>
             </div>
         </div>
@@ -287,60 +285,72 @@ include 'includes/header.php';
         
         <!-- Outstanding Balance -->
         <?php if (isset($stats['outstanding_balance'])): ?>
-        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500 hover:shadow-xl transition">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center">
-                    <div class="bg-orange-100 p-3 rounded-lg mr-3">
-                        <i class="fas fa-exclamation-circle text-orange-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-600 text-sm">Outstanding</p>
-                        <p class="text-2xl font-bold text-gray-800"><?php echo formatMoney($stats['outstanding_balance']); ?></p>
-                    </div>
+        <div class="bg-white rounded-xl shadow-lg p-4 border-l-4 border-orange-500 hover:shadow-xl transition">
+            <div class="flex items-center mb-2">
+                <div class="bg-orange-100 p-2 rounded-lg mr-2">
+                    <i class="fas fa-exclamation-circle text-orange-600 text-lg"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-gray-600 text-xs">Outstanding</p>
+                    <p class="text-lg font-bold text-gray-800 truncate"><?php echo formatMoney($stats['outstanding_balance']); ?></p>
                 </div>
             </div>
-            <div class="flex items-center text-sm">
-                <span class="text-orange-600 font-semibold">Pending payments</span>
+            <div class="text-xs">
+                <span class="text-orange-600 font-semibold">Pending</span>
             </div>
         </div>
         <?php endif; ?>
         
         <!-- Total Clients -->
         <?php if (isset($stats['total_clients'])): ?>
-        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center">
-                    <div class="bg-blue-100 p-3 rounded-lg mr-3">
-                        <i class="fas fa-users text-blue-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-600 text-sm">Total Clients</p>
-                        <p class="text-2xl font-bold text-gray-800"><?php echo $stats['total_clients']; ?></p>
-                    </div>
+        <div class="bg-white rounded-xl shadow-lg p-4 border-l-4 border-blue-500 hover:shadow-xl transition">
+            <div class="flex items-center mb-2">
+                <div class="bg-blue-100 p-2 rounded-lg mr-2">
+                    <i class="fas fa-users text-blue-600 text-lg"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-gray-600 text-xs">Total Clients</p>
+                    <p class="text-lg font-bold text-gray-800"><?php echo $stats['total_clients']; ?></p>
                 </div>
             </div>
-            <div class="flex items-center text-sm">
-                <span class="text-blue-600 font-semibold">Active customers</span>
+            <div class="text-xs">
+                <span class="text-blue-600 font-semibold">Active</span>
             </div>
         </div>
         <?php endif; ?>
         
         <!-- Conversion Rate -->
         <?php if (isset($stats['conversion_rate'])): ?>
-        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-500 hover:shadow-xl transition">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center">
-                    <div class="bg-purple-100 p-3 rounded-lg mr-3">
-                        <i class="fas fa-percentage text-purple-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-600 text-sm">Conversion Rate</p>
-                        <p class="text-2xl font-bold text-gray-800"><?php echo number_format($stats['conversion_rate'], 1); ?>%</p>
-                    </div>
+        <div class="bg-white rounded-xl shadow-lg p-4 border-l-4 border-purple-500 hover:shadow-xl transition">
+            <div class="flex items-center mb-2">
+                <div class="bg-purple-100 p-2 rounded-lg mr-2">
+                    <i class="fas fa-percentage text-purple-600 text-lg"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-gray-600 text-xs">Conversion</p>
+                    <p class="text-lg font-bold text-gray-800"><?php echo number_format($stats['conversion_rate'], 1); ?>%</p>
                 </div>
             </div>
-            <div class="flex items-center text-sm">
-                <span class="text-purple-600 font-semibold"><?php echo $stats['converted_leads']; ?>/<?php echo $stats['total_leads']; ?> leads</span>
+            <div class="text-xs">
+                <span class="text-purple-600 font-semibold"><?php echo $stats['converted_leads']; ?>/<?php echo $stats['total_leads']; ?></span>
+            </div>
+        </div>
+        <?php endif; ?>
+        
+        <!-- Total Projects -->
+        <?php if (isset($stats['total_projects'])): ?>
+        <div class="bg-white rounded-xl shadow-lg p-4 border-l-4 border-indigo-500 hover:shadow-xl transition">
+            <div class="flex items-center mb-2">
+                <div class="bg-indigo-100 p-2 rounded-lg mr-2">
+                    <i class="fas fa-building text-indigo-600 text-lg"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-gray-600 text-xs">Projects</p>
+                    <p class="text-lg font-bold text-gray-800"><?php echo $stats['total_projects']; ?></p>
+                </div>
+            </div>
+            <div class="text-xs">
+                <span class="text-indigo-600 font-semibold"><?php echo $stats['active_projects']; ?> active</span>
             </div>
         </div>
         <?php endif; ?>
